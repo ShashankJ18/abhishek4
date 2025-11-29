@@ -728,13 +728,14 @@
       border: 0;
     }
 
-    /* Shorts Projects */
+    /* Shorts Projects - FIXED SECTION */
     .shorts {
       padding: 80px 20px;
       max-width: var(--max-width);
       margin: 0 auto;
       position: relative;
       z-index: 10;
+      overflow: hidden;
     }
 
     .carousel-container {
@@ -743,6 +744,7 @@
       justify-content: center;
       gap: 20px;
       padding: 24px;
+      width: 100%;
     }
 
     .arrow {
@@ -756,6 +758,8 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.4);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       color: #fff;
+      z-index: 20;
+      flex-shrink: 0;
     }
 
     .arrow:hover {
@@ -769,8 +773,11 @@
       gap: 20px;
       overflow-x: auto;
       scroll-behavior: smooth;
-      width: 80%;
+      width: 100%;
+      max-width: 100%;
       padding: 8px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .carousel::-webkit-scrollbar {
@@ -787,6 +794,7 @@
       border: 1px solid rgba(255,255,255,0.1);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
+      flex-shrink: 0;
     }
 
     .short-card:hover {
@@ -1407,24 +1415,51 @@
         flex-direction: column;
       }
       
-      /* Shorts Section */
+      /* Shorts Section - FIXED FOR MOBILE */
+      .shorts {
+        padding: 60px 15px;
+      }
+      
       .carousel-container {
         gap: 10px;
-        padding: 16px;
+        padding: 16px 8px;
+        flex-wrap: nowrap;
       }
       
       .arrow {
         padding: 12px;
         font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .carousel {
-        width: 85%;
+        width: 100%;
+        max-width: 100%;
+        padding: 8px 4px;
+        gap: 15px;
       }
       
       .short-card {
         min-width: 280px;
         height: 480px;
+        flex-shrink: 0;
+      }
+      
+      /* Hide arrows on very small screens */
+      @media (max-width: 480px) {
+        .arrow {
+          display: none;
+        }
+        
+        .carousel-container {
+          justify-content: flex-start;
+        }
+        
+        .carousel {
+          width: 100%;
+        }
       }
       
       /* Clients Section */
