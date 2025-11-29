@@ -187,6 +187,75 @@
       width: 100%;
     }
 
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 70;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 65;
+      padding: 80px 30px 30px;
+      transition: right 0.3s ease;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-menu a {
+      color: #e9edf2;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 12px 0;
+      display: block;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 64;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
     /* Hero Section */
     .hero {
       text-align: center;
@@ -1162,7 +1231,11 @@
       100% { transform: translateX(0); }
     }
 
-    /* Responsive Design */
+    /* =========================================== */
+    /* RESPONSIVE DESIGN */
+    /* =========================================== */
+
+    /* Tablets and smaller laptops */
     @media (max-width: 1100px) {
       .about-card {
         grid-template-columns: 1fr;
@@ -1211,7 +1284,17 @@
       }
     }
 
-    @media (max-width: 640px) {
+    /* Mobile devices */
+    @media (max-width: 768px) {
+      /* Navigation */
+      .navbar ul, .about-nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
       .navbar, .about-nav {
         padding: 16px 20px;
       }
@@ -1220,45 +1303,83 @@
         font-size: 20px;
       }
       
-      .navbar ul, .about-nav ul {
-        gap: 16px;
-        font-size: 14px;
+      /* Hero Section */
+      .hero {
+        padding: 150px 20px 60px;
       }
       
       .glow-text {
         font-size: 40px;
+        line-height: 1.2;
       }
       
+      #typing {
+        font-size: 20px;
+      }
+      
+      /* Section Titles */
+      .section-title {
+        font-size: 28px;
+        padding: 12px 20px;
+        margin: 60px 0 30px;
+      }
+      
+      /* Video Containers */
       .video-container {
-        width: 100%;
-        height: auto;
+        border-radius: 12px;
       }
       
       .video-thumbnail, .video-player {
-        height: 280px;
+        height: 250px;
       }
       
-      .carousel {
-        width: 90%;
+      .play-button {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
       }
       
-      .client-name {
-        font-size: 18px;
-      }
-      
-      .client-meta {
-        font-size: 14px;
-      }
-      
-      .portrait img {
-        width: 200px;
-        height: 200px;
-      }
-      
-      .footer-inner {
+      .video-actions {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        gap: 12px;
+        align-items: stretch;
+      }
+      
+      .action-btn {
+        justify-content: center;
+      }
+      
+      /* Projects Section */
+      .projects-container {
+        gap: 24px;
+      }
+      
+      .video-thumbnails {
+        max-height: 300px;
+      }
+      
+      .thumbnail {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+      }
+      
+      .thumbnail-img {
+        width: 100%;
+        height: 140px;
+      }
+      
+      .video-details {
+        padding: 24px;
+      }
+      
+      .project-video-container {
+        height: 250px;
+        margin-bottom: 20px;
+      }
+      
+      .project-title {
+        font-size: 22px;
       }
       
       .project-meta {
@@ -1270,24 +1391,118 @@
       .project-stats {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 12px;
+      }
+      
+      .stat {
+        min-width: calc(50% - 12px);
+        padding: 16px;
+      }
+      
+      .stat-value {
+        font-size: 22px;
       }
       
       .project-actions {
-        flex-wrap: wrap;
-      }
-      
-      .thumbnail {
         flex-direction: column;
-        text-align: center;
       }
       
-      .thumbnail-img {
-        width: 100%;
-        height: 140px;
+      /* Shorts Section */
+      .carousel-container {
+        gap: 10px;
+        padding: 16px;
       }
       
-      .project-video-container {
-        height: 250px;
+      .arrow {
+        padding: 12px;
+        font-size: 18px;
+      }
+      
+      .carousel {
+        width: 85%;
+      }
+      
+      .short-card {
+        min-width: 280px;
+        height: 480px;
+      }
+      
+      /* Clients Section */
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .client-badge {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .client-name {
+        font-size: 18px;
+      }
+      
+      .client-meta {
+        font-size: 14px;
+      }
+      
+      /* Contact Section */
+      .section-contact {
+        padding: 60px 20px;
+      }
+      
+      .contact-info-col {
+        padding: 24px;
+      }
+      
+      .contact-heading {
+        font-size: 26px;
+      }
+      
+      .info-link, .info-text {
+        font-size: 16px;
+      }
+      
+      /* Footer */
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      
+      .social-icons {
+        gap: 10px;
+      }
+      
+      /* About Page */
+      .about-main {
+        padding: 120px 20px 60px;
+      }
+      
+      .portrait {
+        padding: 20px;
+      }
+      
+      .portrait img {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .about-text .title {
+        font-size: 26px;
+      }
+      
+      .about-text .intro {
+        font-size: 16px;
+      }
+      
+      .about-cta {
+        justify-content: center;
+      }
+      
+      .btn-primary, .btn-secondary {
+        padding: 12px 20px;
+        font-size: 14px;
       }
       
       /* Mobile-specific floating cameras */
@@ -1296,12 +1511,89 @@
         opacity: 0.2 !important;
       }
     }
+
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+      .hero {
+        padding: 130px 15px 40px;
+      }
+      
+      .glow-text {
+        font-size: 32px;
+      }
+      
+      #typing {
+        font-size: 18px;
+      }
+      
+      .section-title {
+        font-size: 24px;
+        padding: 10px 16px;
+      }
+      
+      .video-thumbnail, .video-player {
+        height: 200px;
+      }
+      
+      .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+      }
+      
+      .thumbnail {
+        min-width: 240px;
+      }
+      
+      .project-video-container {
+        height: 200px;
+      }
+      
+      .project-title {
+        font-size: 20px;
+      }
+      
+      .stat {
+        min-width: 100%;
+      }
+      
+      .short-card {
+        min-width: 240px;
+        height: 420px;
+      }
+      
+      .clients-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .portrait img {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .about-text .title {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <!-- Floating camera icons background -->
   <div id="floating-cameras" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#" id="mobile-about-link">About Me</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#clients" class="mobile-nav-link">Clients</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- Main Navbar -->
   <nav class="navbar" id="main-navbar">
@@ -1312,6 +1604,9 @@
       <li><a href="#clients">Clients</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
   </nav>
 
   <!-- About Page Navbar -->
@@ -1324,6 +1619,9 @@
       <li><a href="#" data-target="clients">Clients</a></li>
       <li><a href="#" data-target="contact">Contact</a></li>
     </ul>
+    <button class="mobile-menu-toggle" id="aboutMobileMenuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
   </nav>
 
   <!-- Main Content -->
@@ -1614,8 +1912,8 @@
     let mouseX = 0;
     let mouseY = 0;
     let cameraElements = [];
-    const REPULSION_RADIUS = 60; // Distance at which icons start repelling
-    const REPULSION_FORCE = 8; // Strength of repulsion effect
+    const REPULSION_RADIUS = 150; // Distance at which icons start repelling
+    const REPULSION_FORCE = 30; // Strength of repulsion effect
 
     // Initialize everything when page loads
     document.addEventListener('DOMContentLoaded', function() {
@@ -1800,6 +2098,59 @@
           }, 100);
         }
       });
+
+      // Mobile Menu Functionality
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const aboutMobileMenuToggle = document.getElementById('aboutMobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const mobileAboutLink = document.getElementById('mobile-about-link');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Toggle mobile menu
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      }
+
+      if (aboutMobileMenuToggle) {
+        aboutMobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      }
+
+      // Close menu when clicking overlay
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+      }
+
+      // Mobile about link
+      if (mobileAboutLink) {
+        mobileAboutLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeMobileMenu();
+          aboutLink.click();
+        });
+      }
+
+      // Mobile navigation links
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeMobileMenu();
+          const targetId = this.getAttribute('href').substring(1);
+          document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        });
+      });
     }
 
     // Setup mouse tracking for repulsion effect
@@ -1915,4 +2266,3 @@
   </script>
 </body>
 </html>
-
