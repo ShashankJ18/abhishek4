@@ -728,112 +728,79 @@
       border: 0;
     }
 
-    /* Shorts Projects - FIXED FOR MOBILE */
-.shorts {
-  padding: 80px 20px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-}
+    /* Shorts Projects */
+    .shorts {
+      padding: 80px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
 
-.carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 24px;
-  width: 100%;
-}
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 24px;
+    }
 
-.arrow {
-  background: var(--gradient);
-  border: none;
-  font-size: 24px;
-  padding: 16px;
-  cursor: pointer;
-  border-radius: 50%;
-  font-weight: 800;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #fff;
-  z-index: 20;
-  flex-shrink: 0;
-}
+    .arrow {
+      background: var(--gradient);
+      border: none;
+      font-size: 24px;
+      padding: 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-weight: 800;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #fff;
+    }
 
-.carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-  max-width: 100%;
-  padding: 8px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+    .arrow:hover {
+      background: var(--gradient-alt);
+      transform: scale(1.15);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+    }
 
-.short-card {
-  width: 320px;
-  height: 540px;
-  background: var(--panel);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  flex-shrink: 0;
-}
+    .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      width: 80%;
+      padding: 8px;
+    }
 
-/* Mobile responsiveness for shorts */
-@media (max-width: 768px) {
-  .shorts {
-    padding: 60px 15px;
-  }
-  
-  .carousel-container {
-    gap: 10px;
-    padding: 16px 8px;
-  }
-  
-  .arrow {
-    padding: 12px;
-    font-size: 18px;
-  }
-  
-  .short-card {
-    width: 280px;
-    height: 480px;
-  }
-}
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
 
-@media (max-width: 480px) {
-  .arrow {
-    display: none;
-  }
-  
-  .carousel-container {
-    justify-content: flex-start;
-  }
-  
-  .short-card {
-    width: 260px;
-    height: 450px;
-  }
-}
+    .short-card {
+      min-width: 320px;
+      height: 540px;
+      background: var(--panel);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
 
-@media (max-width: 360px) {
-  .short-card {
-    width: 240px;
-    height: 420px;
-  }
-  
-  .shorts {
-    padding: 40px 10px;
-  }
-}
+    .short-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .short-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 16px;
+    }
 
     /* Clients Section */
     .section-clients {
@@ -1440,53 +1407,33 @@
         flex-direction: column;
       }
       
-      /* Mobile responsiveness for shorts */
-@media (max-width: 768px) {
-  .shorts {
-    padding: 60px 15px;
-  }
-  
-  .carousel-container {
-    gap: 10px;
-    padding: 16px 8px;
-  }
-  
-  .arrow {
-    padding: 12px;
-    font-size: 18px;
-  }
-  
-  .short-card {
-    width: 280px;
-    height: 480px;
-  }
-}
-
-@media (max-width: 480px) {
-  .arrow {
-    display: none;
-  }
-  
-  .carousel-container {
-    justify-content: flex-start;
-  }
-  
-  .short-card {
-    width: 260px;
-    height: 450px;
-  }
-}
-
-@media (max-width: 360px) {
-  .short-card {
-    width: 240px;
-    height: 420px;
-  }
-  
-  .shorts {
-    padding: 40px 10px;
-  }
-}
+      /* Shorts Section - FIXED FOR MOBILE */
+      .carousel-container {
+        gap: 10px;
+        padding: 16px;
+        flex-direction: column;
+      }
+      
+      .arrow {
+        padding: 12px;
+        font-size: 18px;
+        display: none; /* Hide arrows on mobile */
+      }
+      
+      .carousel {
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 20px;
+        padding: 0 20px;
+      }
+      
+      .short-card {
+        min-width: 85vw;
+        height: 70vh;
+        scroll-snap-align: center;
+        margin: 0 10px;
+      }
       
       /* Clients Section */
       .clients-grid {
@@ -1618,9 +1565,10 @@
         min-width: 100%;
       }
       
+      /* Shorts Section - FIXED FOR SMALL MOBILE */
       .short-card {
-        min-width: 240px;
-        height: 420px;
+        min-width: 90vw;
+        height: 75vh;
       }
       
       .clients-grid {
@@ -2054,28 +2002,21 @@
     }
 
     function initializeShorts() {
-  const container = document.getElementById('shorts-carousel');
-  
-  // Clear container
-  container.innerHTML = '';
-  
-  // Create short cards
-  videoConfig.shorts.forEach(videoId => {
-    const shortCard = document.createElement('div');
-    shortCard.className = 'short-card';
-    shortCard.innerHTML = `
-      <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    `;
-    container.appendChild(shortCard);
-  });
-  
-  // Center the first short on mobile
-  if (window.innerWidth <= 768) {
-    setTimeout(() => {
-      container.scrollLeft = 0;
-    }, 100);
-  }
-}
+      const container = document.getElementById('shorts-carousel');
+      
+      // Clear container
+      container.innerHTML = '';
+      
+      // Create short cards
+      videoConfig.shorts.forEach(videoId => {
+        const shortCard = document.createElement('div');
+        shortCard.className = 'short-card';
+        shortCard.innerHTML = `
+          <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        `;
+        container.appendChild(shortCard);
+      });
+    }
 
     function playVideo(containerId, videoId) {
       const container = document.querySelector(`#${containerId}Video`);
