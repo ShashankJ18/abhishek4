@@ -6,6 +6,7 @@
   <title>Abhishek Dharsandiya - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* All CSS remains exactly the same as before */
     /* Base Styles */
     :root {
       --bg: #0a0f1a;
@@ -1862,7 +1863,6 @@
 
     <!-- Showreel Section -->
     <section class="showreel">
-      <h2 class="section-title">Edit Showreel</h2>
       <div class="video-container">
         <div class="video-thumbnail" id="showreelThumbnail">
           <div class="play-button">
@@ -2034,9 +2034,9 @@
           <p class="info-text">India</p>
 
           <div class="socials">
-            <a href="#" aria-label="instagram">Instagram</a> • 
-            <a href="#">YouTube</a> • 
-            <a href="#">LinkedIn</a>
+            <a href="#" id="social-instagram" aria-label="instagram">Instagram</a> • 
+            <a href="#" id="social-youtube">YouTube</a> • 
+            <a href="#" id="social-linkedin">LinkedIn</a>
           </div>
         </div>
         
@@ -2070,10 +2070,10 @@
         <div class="footer-right">
           <div class="follow-label">Follow Me</div>
           <div class="social-icons">
-            <a href="#" class="icon linkedin" aria-label="LinkedIn">in</a>
-            <a href="#" class="icon youtube" aria-label="YouTube">yt</a>
-            <a href="#" class="icon twitter" aria-label="Twitter">tw</a>
-            <a href="#" class="icon instagram" aria-label="Instagram">ig</a>
+            <a href="#" class="icon linkedin" id="footer-linkedin" aria-label="LinkedIn">in</a>
+            <a href="#" class="icon youtube" id="footer-youtube" aria-label="YouTube">yt</a>
+            <a href="#" class="icon twitter" id="footer-twitter" aria-label="Twitter">tw</a>
+            <a href="#" class="icon instagram" id="footer-instagram" aria-label="Instagram">ig</a>
           </div>
         </div>
       </div>
@@ -2086,7 +2086,8 @@
   <div id="about-page" class="about-main">
     <section class="about-card">
       <div class="portrait">
-        <div style="width:260px;height:260px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:bold;font-size:22px;border-radius:14px;">Profile Image</div>
+        <!-- Updated to use the real photo.jpg file -->
+        <img src="photo.png" alt="Abhishek Dharsandiya - Professional Video Editor">
       </div>
 
       <div class="about-text">
@@ -2117,9 +2118,18 @@
 
   <script>
     // =============================================
-    // ONLY CHANGE THESE VIDEO IDs - EVERYTHING ELSE IS AUTOMATIC
+    // SOCIAL MEDIA LINKS - UPDATE THESE URLs
     // =============================================
-    
+    const socialLinks = {
+      linkedin: "https://linkedin.com/in/yourusername",
+      youtube: "https://youtube.com/yourchannel",
+      twitter: "https://twitter.com/yourusername", 
+      instagram: "https://instagram.com/yourusername"
+    };
+
+    // =============================================
+    // VIDEO IDs - UPDATE THESE IF NEEDED
+    // =============================================
     const videoConfig = {
       // Showreel Video (Main showcase video)
       showreel: "3sZnaoAF0Bw",
@@ -2201,6 +2211,7 @@
 
     // Initialize everything when page loads
     document.addEventListener('DOMContentLoaded', function() {
+      initializeSocialLinks();
       initializeShowreel();
       initializeProjects();
       initializeShorts();
@@ -2211,6 +2222,20 @@
       setupMouseTracking(); // Setup mouse tracking for repulsion effect
       setupScrollIndicator(); // Setup scroll indicator
     });
+
+    // Function to set up social media links
+    function initializeSocialLinks() {
+      // Contact section social links
+      document.getElementById('social-instagram').href = socialLinks.instagram;
+      document.getElementById('social-youtube').href = socialLinks.youtube;
+      document.getElementById('social-linkedin').href = socialLinks.linkedin;
+      
+      // Footer social links
+      document.getElementById('footer-linkedin').href = socialLinks.linkedin;
+      document.getElementById('footer-youtube').href = socialLinks.youtube;
+      document.getElementById('footer-twitter').href = socialLinks.twitter;
+      document.getElementById('footer-instagram').href = socialLinks.instagram;
+    }
 
     function initializeShowreel() {
       const thumbnail = document.getElementById('showreelThumbnail');
