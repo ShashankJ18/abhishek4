@@ -420,51 +420,6 @@
       display: block;
     }
 
-    .video-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 24px;
-      background: var(--panel);
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .action-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .action-btn:hover {
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      border-color: rgba(59, 130, 246, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .watch-btn {
-      background: var(--gradient);
-      color: #fff;
-      border: none;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-      padding: 14px 24px;
-    }
-
-    .watch-btn:hover {
-      background: var(--gradient-alt);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
-    }
-
     /* YouTube Projects Section */
     .youtube-projects {
       padding: 80px 20px;
@@ -1542,16 +1497,6 @@
         font-size: 20px;
       }
       
-      .video-actions {
-        flex-direction: column;
-        gap: 12px;
-        align-items: stretch;
-      }
-      
-      .action-btn {
-        justify-content: center;
-      }
-      
       /* Projects Section */
       .projects-container {
         gap: 24px;
@@ -1604,10 +1549,6 @@
       
       .stat-value {
         font-size: 22px;
-      }
-      
-      .project-actions {
-        flex-direction: column;
       }
       
       /* Shorts Section - FIXED FOR MOBILE */
@@ -1929,13 +1870,7 @@
           </div>
         </div>
         <iframe class="video-player" id="showreelVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="video-actions">
-          <div>
-            <button class="action-btn"><i class="far fa-clock"></i> Watch Later</button>
-            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
-          </div>
-          <button class="action-btn watch-btn" id="showreelPlayBtn"><i class="fab fa-youtube"></i> Play Video</button>
-        </div>
+        <!-- Video actions removed completely -->
       </div>
     </section>
 
@@ -1982,8 +1917,7 @@
           </ul>
           
           <div class="project-actions">
-            <button class="action-btn watch-btn" id="projectYoutubeBtn"><i class="fab fa-youtube"></i> Watch on YouTube</button>
-            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+            <!-- Project actions removed completely -->
           </div>
         </div>
       </div>
@@ -2280,14 +2214,12 @@
 
     function initializeShowreel() {
       const thumbnail = document.getElementById('showreelThumbnail');
-      const playBtn = document.getElementById('showreelPlayBtn');
       
       // Set thumbnail background
       thumbnail.style.backgroundImage = `url('https://img.youtube.com/vi/${videoConfig.showreel}/maxresdefault.jpg')`;
       
-      // Set click events
+      // Set click event
       thumbnail.onclick = () => playVideo('showreel', videoConfig.showreel);
-      playBtn.onclick = () => playVideo('showreel', videoConfig.showreel);
     }
 
     function initializeProjects() {
@@ -2296,7 +2228,6 @@
       const projectTitle = document.getElementById('projectTitle');
       const projectChannel = document.getElementById('projectChannel');
       const projectSavings = document.getElementById('projectSavings');
-      const youtubeBtn = document.getElementById('projectYoutubeBtn');
       
       // Clear container
       container.innerHTML = '';
@@ -2328,7 +2259,6 @@
           projectTitle.textContent = data.title;
           projectChannel.textContent = data.channel;
           projectSavings.textContent = data.savings;
-          youtubeBtn.onclick = () => openInYouTube(videoId);
         };
         
         container.appendChild(thumbnail);
@@ -2340,7 +2270,6 @@
         projectTitle.textContent = videoData.projects[0].title;
         projectChannel.textContent = videoData.projects[0].channel;
         projectSavings.textContent = videoData.projects[0].savings;
-        youtubeBtn.onclick = () => openInYouTube(videoConfig.projects[0]);
       }
     }
 
