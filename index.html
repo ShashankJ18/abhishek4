@@ -894,141 +894,235 @@
       margin-bottom: 8px;
     }
 
-    /* Testimonials Section */
-    .testimonials {
-      padding: 100px 20px;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
-    }
+    /* Updated Testimonials Section */
+.testimonials {
+  padding: 100px 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
 
-    .testimonials-container {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 20px;
-      background: var(--panel);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+.testimonials-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+}
 
-    .testimonials-carousel {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      height: 500px;
-    }
+.testimonials-carousel {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    .testimonial-slide {
-      min-width: 100%;
-      display: flex;
-      flex-direction: column;
-      padding: 40px;
-      box-sizing: border-box;
-    }
+.testimonial-slide {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 30px;
+}
 
-    .testimonial-video {
-      flex: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 24px;
-      background: #000;
-    }
+.testimonial-video {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9; /* YouTube standard aspect ratio */
+}
 
-    .testimonial-video iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+.testimonial-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
-    .testimonial-content {
-      text-align: center;
-    }
+.testimonial-content {
+  text-align: center;
+  padding: 0 20px;
+}
 
-    .testimonial-text {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 20px;
-      font-style: italic;
-      position: relative;
-    }
+.testimonial-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-style: italic;
+  position: relative;
+  padding: 0 20px;
+}
 
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      color: var(--accent);
-      font-size: 24px;
-      font-weight: 800;
-    }
+.testimonial-text::before,
+.testimonial-text::after {
+  content: '"';
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 800;
+  position: absolute;
+}
 
-    .testimonial-author {
-      font-weight: 700;
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 8px;
-    }
+.testimonial-text::before {
+  top: -10px;
+  left: 0;
+}
 
-    .testimonial-role {
-      color: var(--accent);
-      font-size: 16px;
-      font-weight: 600;
-    }
+.testimonial-text::after {
+  bottom: -20px;
+  right: 0;
+}
 
-    .testimonial-nav {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 30px;
-    }
+.testimonial-author {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 8px;
+}
 
-    .testimonial-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+.testimonial-role {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 600;
+}
 
-    .testimonial-dot.active {
-      background: var(--accent);
-      transform: scale(1.2);
-    }
+.testimonial-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
 
-    .testimonial-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--gradient);
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 20;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-    }
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    .testimonial-arrow:hover {
-      background: var(--gradient-alt);
-      transform: translateY(-50%) scale(1.1);
-    }
+.testimonial-dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
 
-    .testimonial-arrow.prev {
-      left: 20px;
-    }
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--gradient);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
 
-    .testimonial-arrow.next {
-      right: 20px;
-    }
+.testimonial-arrow:hover {
+  background: var(--gradient-alt);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.testimonial-arrow.prev {
+  left: -70px;
+}
+
+.testimonial-arrow.next {
+  right: -70px;
+}
+
+/* Responsive adjustments for testimonials */
+@media (max-width: 1100px) {
+  .testimonials-carousel {
+    height: auto;
+  }
+  
+  .testimonial-slide {
+    padding: 0;
+  }
+  
+  .testimonial-video {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-container {
+    padding: 20px;
+  }
+  
+  .testimonial-slide {
+    gap: 20px;
+  }
+  
+  .testimonial-video {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .testimonial-text {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  
+  .testimonial-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .testimonial-arrow.prev {
+    left: -50px;
+  }
+  
+  .testimonial-arrow.next {
+    right: -50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-container {
+    padding: 15px;
+  }
+  
+  .testimonial-slide {
+    gap: 15px;
+  }
+  
+  .testimonial-text {
+    font-size: 15px;
+  }
+  
+  .testimonial-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .testimonial-arrow.prev {
+    left: -40px;
+  }
+  
+  .testimonial-arrow.next {
+    right: -40px;
+  }
+}
 
     /* Contact Section */
     .section-contact {
@@ -1910,10 +2004,9 @@
             </div>
           </div>
           
-          <ul class="project-achievements">
-            <li>Crafted long form videos, that has generated 10x Engagement Ratio, from DAY 1.</li>
-            <li>Gained over 80M+ Views and Impressions, with Long Form Content.</li>
-            <li>Scaled his Personal Brand from 120K to 400K, in just 6 Months.</li>
+          <!-- Updated: Achievements list container -->
+          <ul class="project-achievements" id="projectAchievements">
+            <!-- Achievements will be populated by JavaScript -->
           </ul>
           
           <div class="project-actions">
@@ -2100,7 +2193,7 @@
           <p>I've been crafting videos since <strong>2016</strong>, and my passion for storytelling through visuals has only grown stronger with time.</p>
 
           <p class="highlight">
-            With a strong understanding of design aesthetics, color theory, music selection, SFX, fonts, pacing, and transitions, I bring together all the right elements to produce edits that not only look great but also feel right. Every frame I deliver has intention and impact.
+            With a strong understanding of design aesthetics, color theory, music selection, SFX, typography, and transitions, I bring together all the right elements to produce edits that not only look great but also feel right. Every frame I deliver has intention and impact.
           </p>
 
           <p>Beyond editing, I also love to shoot and direct videos — bringing ideas to life from concept to execution.</p>
@@ -2136,20 +2229,19 @@
       
       // YouTube Projects (5 videos for the projects section)
       projects: [
-        "s7H9hyopPGE",
-        "joGa20fAngo", 
-        "yrFFp7oBFqY",
-        "vfjI7u4D2fc",
-        "0C8wasc-J-Q"
+        "s-8gwluIKaw",
+        "kbBigpViPXM", 
+        "IiE61fCp3T0",
+        "VIsqv8O-7Do",
+        "GaXz-4iIgyA"
       ],
       
       // Shorts Videos (5 YouTube Shorts)
       shorts: [
-        "AhhCLSUmaQQ",
-        "8Ffy4vveELc",
-        "AhhCLSUmaQQ",
-        "BklgajsMm9k", 
-        "0lF9vdT8JhI"
+        "oFFE3bHQPPI",
+        "N-ZjBalJJ8E",
+        "2zuxXRfT0Js",
+        "8zguXAYPFHs"
       ],
       
       // Testimonials Videos (3 testimonial videos)
@@ -2161,21 +2253,89 @@
     };
 
     // =============================================
-    // NO NEED TO CHANGE ANYTHING BELOW THIS LINE
+    // UPDATED: Video data with titles, channels, stats, and achievements
     // =============================================
-
-    // Video data with titles and channels
     const videoData = {
       showreel: {
         title: "Professional Video Edit",
         channel: "Abhishek Dharsandiya"
       },
       projects: [
-        { title: "Big Buck Bunny Animation", channel: "Blender Foundation", savings: "75% SAVINGS RATE" },
-        { title: "Sintel - Animated Short Film", channel: "Blender Foundation", savings: "60% GROWTH RATE" },
-        { title: "Waking Life - Animation Sequence", channel: "Film Excerpt", savings: "80% ENGAGEMENT" },
-        { title: "Cosmos Laundromat - Animated Short", channel: "Blender Foundation", savings: "70% CONVERSION" },
-        { title: "Animation Showcase Reel", channel: "Creative Studio", savings: "65% RETENTION" }
+        { 
+          title: "This Real Estate Insight Shocked Me…", 
+          channel: "Blender Foundation", 
+          savings: "75% SAVINGS RATE",
+          stats: {
+            engagement: "10x",
+            views: "80M+",
+            subscribers: "400K"
+          },
+          achievements: [
+            "Crafted a visually dynamic 1-minute podcast micro-edit, combining expressive typography and smooth animation for high-retention storytelling.",
+            "Designed a clean, modern type-driven narrative flow, enhancing clarity, pace, and viewer engagement even in short-form format.",
+            "Delivered a polished, brand-ready edit built to elevate podcast presence, perfect for reels, shorts, and high-performance social media distribution."
+          ]
+        },
+        { 
+          title: "My Sound Design Work on an Apple Watch Commercial", 
+          channel: "Blender Foundation", 
+          savings: "60% GROWTH RATE",
+          stats: {
+            engagement: "8x",
+            views: "50M+",
+            subscribers: "250K"
+          },
+          achievements: [
+            "Designed a high-fidelity sound-rich cinematic edit, elevating the Apple Watch Ultra’s storytelling with precision-crafted audio detailing.",
+            "Engineered an immersive product-experience sequence by blending motion, sound layers, and clean transitions for a premium brand feel.",
+            "Delivered a studio-grade sound design showcase, built to demonstrate mastery in SFX layering, ambience creation & luxury-product pacing."
+          ]
+        },
+        { 
+          title: "Re-Editing the Hustle With Harman Video in My Style", 
+          channel: "Film Excerpt", 
+          savings: "80% ENGAGEMENT",
+          stats: {
+            engagement: "12x",
+            views: "35M+",
+            subscribers: "180K"
+          },
+          achievements: [
+            "Re-imagined the original video with a sharper narrative flow, elevating pacing, energy, and emotional impact through my personal editing style.",
+            "Enhanced the visual storytelling with clean transitions, dynamic motion, and expressive typography, transforming the raw content into a high-engagement format.",
+            "Delivered a polished creator-centric re-edit designed to boost retention, improve watchability, and amplify the overall brand aesthetic."
+          ]
+        },
+        { 
+          title: "Podcast of ISHO Officer of Gujarat Government", 
+          channel: "Blender Foundation", 
+          savings: "70% CONVERSION",
+          stats: {
+            engagement: "7x",
+            views: "25M+",
+            subscribers: "150K"
+          },
+          achievements: [
+            "Crafted high-retention long-form content (1H+), maintaining audience interest through dynamic pacing and seamless narrative structuring.",
+            "Generated over 2,300+ highly targeted views, effectively engaging the niche GPSC aspirant community with optimized visual storytelling.",
+            "Elevated the institutional brand authority, transforming raw interview footage into a polished, broadcast-quality success story of a Govt. Officer."
+          ]
+        },
+        { 
+          title: "Podcast of Revenue Department Surveyor of Gujarat Government", 
+          channel: "Creative Studio", 
+          savings: "65% RETENTION",
+          stats: {
+            engagement: "9x",
+            views: "40M+",
+            subscribers: "220K"
+          },
+          achievements: [
+            "Crafted engaging long-form podcast content (1H+), maintaining high audience retention by structuring complex interview topics into a compelling narrative.",
+            "Gained over 2.3K+ highly targeted views from GPSC aspirants, effectively driving organic engagement within the competitive education niche.",
+            "Strengthened the 'Sankalp Education' brand authority by professionally showcasing successful officer journeys to build trust and inspire future students."
+          ]
+        }
       ],
       testimonials: [
         {
@@ -2253,9 +2413,13 @@
       const projectTitle = document.getElementById('projectTitle');
       const projectChannel = document.getElementById('projectChannel');
       const projectSavings = document.getElementById('projectSavings');
+      const projectAchievements = document.getElementById('projectAchievements');
+      const statValues = document.querySelectorAll('.stat-value');
+      const statLabels = document.querySelectorAll('.stat-label');
       
-      // Clear container
+      // Clear containers
       container.innerHTML = '';
+      projectAchievements.innerHTML = '';
       
       // Create thumbnails
       videoConfig.projects.forEach((videoId, index) => {
@@ -2284,17 +2448,44 @@
           projectTitle.textContent = data.title;
           projectChannel.textContent = data.channel;
           projectSavings.textContent = data.savings;
+          
+          // Update stats
+          statValues[0].textContent = data.stats.engagement;
+          statValues[1].textContent = data.stats.views;
+          statValues[2].textContent = data.stats.subscribers;
+          
+          // Update achievements
+          projectAchievements.innerHTML = '';
+          data.achievements.forEach(achievement => {
+            const li = document.createElement('li');
+            li.textContent = achievement;
+            projectAchievements.appendChild(li);
+          });
         };
         
         container.appendChild(thumbnail);
       });
       
-      // Set initial video
+      // Set initial video (first project)
       if (videoConfig.projects.length > 0) {
+        const firstProject = videoData.projects[0];
         projectVideo.src = `https://www.youtube.com/embed/${videoConfig.projects[0]}`;
-        projectTitle.textContent = videoData.projects[0].title;
-        projectChannel.textContent = videoData.projects[0].channel;
-        projectSavings.textContent = videoData.projects[0].savings;
+        projectTitle.textContent = firstProject.title;
+        projectChannel.textContent = firstProject.channel;
+        projectSavings.textContent = firstProject.savings;
+        
+        // Set initial stats
+        statValues[0].textContent = firstProject.stats.engagement;
+        statValues[1].textContent = firstProject.stats.views;
+        statValues[2].textContent = firstProject.stats.subscribers;
+        
+        // Set initial achievements
+        projectAchievements.innerHTML = '';
+        firstProject.achievements.forEach(achievement => {
+          const li = document.createElement('li');
+          li.textContent = achievement;
+          projectAchievements.appendChild(li);
+        });
       }
     }
 
