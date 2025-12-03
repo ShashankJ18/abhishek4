@@ -1973,7 +1973,7 @@
 
     <!-- YouTube Projects Section -->
     <section class="youtube-projects" id="projects">
-      <h2 class="section-title">YouTube Projects</h2>
+      <h2 class="section-title">Long Projects</h2>
       
       <div class="projects-container">
         <div class="video-thumbnails" id="projectsThumbnails">
@@ -1988,7 +1988,7 @@
           
           <h3 class="project-title" id="projectTitle">Project Title</h3>
           <div class="project-meta">
-            <span class="project-channel" id="projectChannel">Channel Name</span>
+            <!--<span class="project-channel" id="projectChannel">Channel Name</span>-->
             <span class="project-savings" id="projectSavings">75% SAVINGS RATE</span>
           </div>
           
@@ -2021,7 +2021,7 @@
 
     <!-- Shorts Projects -->
     <section class="shorts">
-      <h2 class="section-title">Shorts Projects</h2>
+      <h2 class="section-title">Short Projects</h2>
 
       <div class="carousel-container">
         <button class="arrow left" onclick="scrollShortsLeft()">◀</button>
@@ -2437,10 +2437,10 @@
           </div>
           <div class="thumbnail-info">
             <div class="thumbnail-title">${data.title}</div>
-            <div class="thumbnail-channel">${data.channel}</div>
+            
           </div>
         `;
-        
+        //<div class="thumbnail-channel">${data.channel}</div>
         thumbnail.onclick = () => {
           // Update active state
           document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
@@ -2449,7 +2449,7 @@
           // Update video and details
           projectVideo.src = `https://www.youtube.com/embed/${videoId}`;
           projectTitle.textContent = data.title;
-          projectChannel.textContent = data.channel;
+          //projectChannel.textContent = data.channel;
           projectSavings.textContent = data.savings;
           
           // Update stats
@@ -2474,7 +2474,7 @@
         const firstProject = videoData.projects[0];
         projectVideo.src = `https://www.youtube.com/embed/${videoConfig.projects[0]}`;
         projectTitle.textContent = firstProject.title;
-        projectChannel.textContent = firstProject.channel;
+        //projectChannel.textContent = firstProject.channel;
         projectSavings.textContent = firstProject.savings;
         
         // Set initial stats
