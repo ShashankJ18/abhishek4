@@ -330,6 +330,8 @@
       max-width: var(--max-width);
       margin: 0 auto;
       position: relative;
+      padding-bottom: 0px;
+      padding-top: 0px;
       z-index: 10;
     }
 
@@ -427,6 +429,8 @@
       max-width: var(--max-width);
       margin: 0 auto;
       position: relative;
+      padding-top: 0px;
+      padding-bottom: 0px;
       z-index: 10;
     }
     
@@ -638,6 +642,8 @@
       max-width: var(--max-width);
       margin: 0 auto;
       position: relative;
+      padding-top: 5px;
+      padding-bottom: 0px;
       z-index: 10;
     }
 
@@ -770,6 +776,8 @@
       position: relative;
       max-width: var(--max-width);
       margin: 0 auto;
+      padding-top: 10px;
+      padding-bottom: 5px;
       z-index: 10;
     }
 
@@ -852,6 +860,7 @@
   max-width: var(--max-width);
   margin: 0 auto;
   position: relative;
+  padding-top: 15px;
   z-index: 10;
 }
 
@@ -1239,7 +1248,7 @@
       border-radius: 50%;
       display: inline-grid;
       place-items: center;
-      background: rgba(255,255,255,0.05);
+      background: #0077B5;
       font-weight: 800;
       color: #fff;
       font-size: 14px;
@@ -1247,11 +1256,25 @@
       transition: all 0.3s ease;
     }
 
+    .icon i {
+  font-size: 16px;
+}
+
+    .icon.instagram {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
     .icon:hover {
       background: var(--gradient);
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
     }
+
+    .icon.instagram:hover {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(225, 48, 108, 0.3);
+}
 
     .footer-line {
       height: 4px;
@@ -2032,7 +2055,7 @@
           <h3 class="contact-heading">GET IN TOUCH</h3>
           
           <span class="info-label">DROP A MAIL AT:</span>
-          <a class="info-link" href="mailto:shashwat.massmedia@gmail.com">shashwat.massmedia@gmail.com</a>
+          <a class="info-link" href="mailto:abhiwork2310@gmail.com">abhiwork2310@gmail.com</a>
 
           <span class="info-label">PHONE NUMBER:</span>
           <p class="info-text">+91 9131571484</p>
@@ -2042,7 +2065,8 @@
 
           <!-- UPDATED: Keeping only LinkedIn -->
           <div class="socials">
-            <a href="https://linkedin.com/in/yourusername" target="_blank" id="social-linkedin">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/abhishekdharsandiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" id="social-linkedin">LinkedIn</a>
+            <a href="https://www.instagram.com/editsxabhii?igsh=bXZqN3kwbGd3ZDE5&utm_source=qr" target="_blank" id="social-instagram">Instagram</a>
           </div>
         </div>
         
@@ -2060,7 +2084,7 @@
 
           <div class="socials" style="margin-top: 40px;">
             <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Let's create something amazing together!</p>
-            <a href="mailto:shashwat.massmedia@gmail.com" class="btn-primary" style="color:rgba(255, 255, 255, 0.651); display: inline-block; text-decoration: none;">Send Email</a>
+            <a href="mailto:abhiwork2310@gmail.com" class="btn-primary" style="color:rgba(255, 255, 255, 0.651); display: inline-block; text-decoration: none;">Send Email</a>
           </div>
         </div>
       </div>
@@ -2077,7 +2101,10 @@
           <div class="follow-label">Follow Me</div>
           <div class="social-icons">
             <!-- UPDATED: Keeping only LinkedIn icon -->
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="icon linkedin" id="footer-linkedin" aria-label="LinkedIn">in</a>
+            <a href="https://www.linkedin.com/in/abhishekdharsandiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="icon linkedin" id="footer-linkedin" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/editsxabhii?igsh=bXZqN3kwbGd3ZDE5&utm_source=qr" target="_blank" class="icon instagram" id="footer-instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
           </div>
         </div>
       </div>
@@ -2125,7 +2152,8 @@
     // SOCIAL MEDIA LINKS - UPDATED: Only LinkedIn
     // =============================================
     const socialLinks = {
-      linkedin: "https://linkedin.com/in/yourusername" // REPLACE WITH YOUR ACTUAL LINKEDIN URL
+      linkedin: "https://www.linkedin.com/in/abhishekdharsandiya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", // REPLACE WITH YOUR ACTUAL LINKEDIN URL
+      instagram: "https://www.instagram.com/editsxabhii?igsh=bXZqN3kwbGd3ZDE5&utm_source=qr"   // ADD YOUR INSTAGRAM URL HERE
     };
 
     // =============================================
@@ -2252,9 +2280,11 @@
     function initializeSocialLinks() {
       // Contact section social links - ONLY LINKEDIN
       document.getElementById('social-linkedin').href = socialLinks.linkedin;
+        document.getElementById('social-instagram').href = socialLinks.instagram;
       
       // Footer social links - ONLY LINKEDIN
       document.getElementById('footer-linkedin').href = socialLinks.linkedin;
+      document.getElementById('footer-instagram').href = socialLinks.instagram;
     }
 
     function initializeShowreel() {
