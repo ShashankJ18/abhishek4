@@ -571,66 +571,32 @@
       color: var(--accent);
     }
     
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
+    /* REMOVED: Project stats and savings rate section */
     
-    .project-channel {
-      font-weight: 600;
-      color: var(--muted);
-    }
-    
-    .project-savings {
-      background: rgba(59, 130, 246, 0.15);
-      color: var(--accent);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    
-    .project-stats {
-      display: flex;
-      gap: 24px;
+    /* Project Video Player */
+    .project-video-container {
+      width: 100%;
+      height: 450px;
       margin-bottom: 30px;
-    }
-    
-    .stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      background: rgba(255,255,255,0.03);
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      flex: 1;
-      transition: all 0.3s ease;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .stat:hover {
-      background: rgba(255,255,255,0.05);
-      transform: translateY(-3px);
+    .project-video-player {
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
-    
-    .stat-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--accent);
-    }
-    
-    .stat-label {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-    
+
+    /* REMOVED: Project stats styling */
+
     .project-achievements {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 24px 0 0 0;
     }
     
     .project-achievements li {
@@ -664,24 +630,6 @@
       display: flex;
       gap: 12px;
       margin-top: 30px;
-    }
-
-    /* Project Video Player */
-    .project-video-container {
-      width: 100%;
-      height: 450px;
-      margin-bottom: 30px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .project-video-player {
-      width: 100%;
-      height: 100%;
-      border: 0;
     }
 
     /* Shorts Projects */
@@ -826,60 +774,64 @@
     }
 
     .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      align-items: center;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
     .client {
       text-align: center;
     }
 
-    .client-badge {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      margin: 0 auto 16px;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.05), transparent);
-      border: 6px solid rgba(255,255,255,0.1);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
+    .client-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.05), transparent);
+  border: 6px solid rgba(255,255,255,0.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
 
-    .client-badge::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: var(--gradient);
-      border-radius: 50%;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
+    .client-logo::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
-    .client-badge:hover::before {
+    .client-logo:hover::before {
       opacity: 1;
     }
 
-    .client-badge:hover {
-      transform: scale(1.08);
-      border-color: transparent;
-      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
-    }
+    .client-logo:hover {
+  transform: scale(1.08);
+  border-color: transparent;
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+}
 
-    .client-badge img {
-      width: 85%;
-      height: 85%;
-      object-fit: contain;
-      display: block;
-    }
+    .client-logo img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain; /* Changed from cover to contain to show full logo */
+  display: block;
+  border-radius: 50%; /* Make the image itself round */
+  padding: 10px; /* Add some padding inside the circle */
+  background: var(--panel-light); /* Background color for the logo */
+}
 
     .client-name {
       font-weight: 800;
@@ -912,20 +864,29 @@
   background: var(--panel);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.1);
-  padding: 30px;
+  padding: 30px 20px; /* Changed from 30px to 30px 20px */
 }
 
 .testimonials-carousel {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Add this to create proper spacing */
+  width: 100%;
 }
 
 .testimonial-slide {
-  min-width: 100%;
+  min-width: calc(100% - 40px); /* Reduced from 100% to create space */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   gap: 30px;
+  /* Add margin to create space between slides */
+  margin: 0 20px; /* This creates space between slides */
+  /* Optional: Add some styling to make the separation clearer */
+  padding: 20px;
+  background: rgba(26, 35, 50, 0.5); /* Slightly different background */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .testimonial-video {
@@ -1512,10 +1473,10 @@
         gap: 30px;
       }
       
-      .client-badge {
-        width: 140px;
-        height: 140px;
-      }
+      .client-logo {
+    width: 140px;
+    height: 140px;
+  }
       
       .glow-text {
         font-size: 52px;
@@ -1628,26 +1589,7 @@
         font-size: 22px;
       }
       
-      .project-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      
-      .project-stats {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-      }
-      
-      .stat {
-        min-width: calc(50% - 12px);
-        padding: 16px;
-      }
-      
-      .stat-value {
-        font-size: 22px;
-      }
+      /* REMOVED: Project stats responsive styling */
       
       /* Shorts Section - FIXED FOR MOBILE */
       .carousel-container {
@@ -1706,7 +1648,7 @@
         gap: 20px;
       }
       
-      .client-badge {
+      .client-logo {
         width: 120px;
         height: 120px;
       }
@@ -1857,9 +1799,7 @@
         font-size: 20px;
       }
       
-      .stat {
-        min-width: 100%;
-      }
+      /* REMOVED: Project stats small mobile styling */
       
       /* Shorts Section - FIXED FOR SMALL MOBILE */
       .short-card {
@@ -1889,6 +1829,10 @@
         grid-template-columns: 1fr;
       }
       
+      .client-logo {
+    width: 140px;
+    height: 140px;
+  }
       .portrait img {
         width: 160px;
         height: 160px;
@@ -1987,25 +1931,8 @@
           </div>
           
           <h3 class="project-title" id="projectTitle">Project Title</h3>
-          <div class="project-meta">
-            <!--<span class="project-channel" id="projectChannel">Channel Name</span>-->
-            <span class="project-savings" id="projectSavings">75% SAVINGS RATE</span>
-          </div>
           
-          <div class="project-stats">
-            <div class="stat">
-              <span class="stat-value">10x</span>
-              <span class="stat-label">Engagement</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">80M+</span>
-              <span class="stat-label">Views</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">400K</span>
-              <span class="stat-label">Subscribers</span>
-            </div>
-          </div>
+          <!-- REMOVED: Project stats section -->
           
           <!-- Updated: Achievements list container -->
           <ul class="project-achievements" id="projectAchievements">
@@ -2045,51 +1972,35 @@
     </section>
 
     <!-- Clients Section -->
-    <section id="clients" class="section-clients">
-      <h2 class="section-title">Clients</h2>
+<section id="clients" class="section-clients">
+  <h2 class="section-title">Clients</h2>
 
-      <div class="clients-grid">
-        <div class="client">
-          <div class="client-badge">
-            <div style="width:100%;height:100%;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:bold;font-size:28px;">PW</div>
-          </div>
-          <h4 class="client-name">Physics Wallah</h4>
-          <p class="client-meta">11M+ Subscribers</p>
-        </div>
-
-        <div class="client">
-          <div class="client-badge">
-            <div style="width:100%;height:100%;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:bold;font-size:28px;">H</div>
-          </div>
-          <h4 class="client-name">Homeys</h4>
-          <p class="client-meta">2M+ Subscribers</p>
-        </div>
-
-        <div class="client">
-          <div class="client-badge">
-            <div style="width:100%;height:100%;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:bold;font-size:28px;">NW</div>
-          </div>
-          <h4 class="client-name">NCERT Wallah</h4>
-          <p class="client-meta">1.21M+ Subscribers</p>
-        </div>
-
-        <div class="client">
-          <div class="client-badge">
-            <div style="width:100%;height:100%;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:bold;font-size:28px;">GB</div>
-          </div>
-          <h4 class="client-name">Gabe Bult</h4>
-          <p class="client-meta">500K+ Subscribers</p>
-        </div>
-
-        <div class="client">
-          <div class="client-badge">
-            <div style="width:100%;height:100%;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:bold;font-size:28px;">HS</div>
-          </div>
-          <h4 class="client-name">Harman Singh</h4>
-          <p class="client-meta">370K+ Subscribers</p>
-        </div>
+  <div class="clients-grid">
+    <div class="client">
+      <div class="client-logo">
+        <!-- Replace the div with an img tag -->
+        <img src="logo1.png" alt="Sankalp Education Logo">
       </div>
-    </section>
+      <h4 class="client-name">Sankalp Education</h4>
+    </div>
+
+    <div class="client">
+      <div class="client-logo">
+        <!-- Replace the div with an img tag -->
+        <img src="logo2.png" alt="Brrainothon Logo">
+      </div>
+      <h4 class="client-name">Brrainothon</h4>
+    </div>
+
+    <div class="client">
+      <div class="client-logo">
+        <!-- Replace the div with an img tag -->
+        <img src="logo3.png" alt="Lean Capsule Logo">
+      </div>
+      <h4 class="client-name">Learn Capsule</h4>
+    </div>
+  </div>
+</section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
@@ -2129,10 +2040,9 @@
           <span class="info-label">LOCATION:</span>
           <p class="info-text">India</p>
 
+          <!-- UPDATED: Keeping only LinkedIn -->
           <div class="socials">
-            <a href="#" id="social-instagram" aria-label="instagram">Instagram</a> • 
-            <a href="#" id="social-youtube">YouTube</a> • 
-            <a href="#" id="social-linkedin">LinkedIn</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" id="social-linkedin">LinkedIn</a>
           </div>
         </div>
         
@@ -2166,10 +2076,8 @@
         <div class="footer-right">
           <div class="follow-label">Follow Me</div>
           <div class="social-icons">
-            <a href="#" class="icon linkedin" id="footer-linkedin" aria-label="LinkedIn">in</a>
-            <a href="#" class="icon youtube" id="footer-youtube" aria-label="YouTube">yt</a>
-            <a href="#" class="icon twitter" id="footer-twitter" aria-label="Twitter">tw</a>
-            <a href="#" class="icon instagram" id="footer-instagram" aria-label="Instagram">ig</a>
+            <!-- UPDATED: Keeping only LinkedIn icon -->
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="icon linkedin" id="footer-linkedin" aria-label="LinkedIn">in</a>
           </div>
         </div>
       </div>
@@ -2214,13 +2122,10 @@
 
   <script>
     // =============================================
-    // SOCIAL MEDIA LINKS - UPDATE THESE URLs
+    // SOCIAL MEDIA LINKS - UPDATED: Only LinkedIn
     // =============================================
     const socialLinks = {
-      linkedin: "https://linkedin.com/in/yourusername",
-      youtube: "https://youtube.com/yourchannel",
-      twitter: "https://twitter.com/yourusername", 
-      instagram: "https://instagram.com/yourusername"
+      linkedin: "https://linkedin.com/in/yourusername" // REPLACE WITH YOUR ACTUAL LINKEDIN URL
     };
 
     // =============================================
@@ -2249,14 +2154,13 @@
       
       // Testimonials Videos (3 testimonial videos)
       testimonials: [
-        "s7H9hyopPGE",
-        "vfjI7u4D2fc", 
-        "0C8wasc-J-Q"
+        "SxYHV2FKWv0",
+        "cQ2a-PeeqKw"
       ]
     };
 
     // =============================================
-    // UPDATED: Video data with titles, channels, stats, and achievements
+    // UPDATED: Video data - removed stats and savings rate
     // =============================================
     const videoData = {
       showreel: {
@@ -2267,12 +2171,6 @@
         { 
           title: "This Real Estate Insight Shocked Me…", 
           channel: "Blender Foundation", 
-          savings: "75% SAVINGS RATE",
-          stats: {
-            engagement: "10x",
-            views: "80M+",
-            subscribers: "400K"
-          },
           achievements: [
             "Crafted a visually dynamic 1-minute podcast micro-edit, combining expressive typography and smooth animation for high-retention storytelling.",
             "Designed a clean, modern type-driven narrative flow, enhancing clarity, pace, and viewer engagement even in short-form format.",
@@ -2282,14 +2180,8 @@
         { 
           title: "My Sound Design Work on an Apple Watch Commercial", 
           channel: "Blender Foundation", 
-          savings: "60% GROWTH RATE",
-          stats: {
-            engagement: "8x",
-            views: "50M+",
-            subscribers: "250K"
-          },
           achievements: [
-            "Designed a high-fidelity sound-rich cinematic edit, elevating the Apple Watch Ultra’s storytelling with precision-crafted audio detailing.",
+            "Designed a high-fidelity sound-rich cinematic edit, elevating the Apple Watch Ultra's storytelling with precision-crafted audio detailing.",
             "Engineered an immersive product-experience sequence by blending motion, sound layers, and clean transitions for a premium brand feel.",
             "Delivered a studio-grade sound design showcase, built to demonstrate mastery in SFX layering, ambience creation & luxury-product pacing."
           ]
@@ -2297,12 +2189,6 @@
         { 
           title: "Re-Editing the Hustle With Harman Video in My Style", 
           channel: "Film Excerpt", 
-          savings: "80% ENGAGEMENT",
-          stats: {
-            engagement: "12x",
-            views: "35M+",
-            subscribers: "180K"
-          },
           achievements: [
             "Re-imagined the original video with a sharper narrative flow, elevating pacing, energy, and emotional impact through my personal editing style.",
             "Enhanced the visual storytelling with clean transitions, dynamic motion, and expressive typography, transforming the raw content into a high-engagement format.",
@@ -2312,12 +2198,6 @@
         { 
           title: "Podcast of ISHO Officer of Gujarat Government", 
           channel: "Blender Foundation", 
-          savings: "70% CONVERSION",
-          stats: {
-            engagement: "7x",
-            views: "25M+",
-            subscribers: "150K"
-          },
           achievements: [
             "Crafted high-retention long-form content (1H+), maintaining audience interest through dynamic pacing and seamless narrative structuring.",
             "Generated over 2,300+ highly targeted views, effectively engaging the niche GPSC aspirant community with optimized visual storytelling.",
@@ -2327,12 +2207,6 @@
         { 
           title: "Podcast of Revenue Department Surveyor of Gujarat Government", 
           channel: "Creative Studio", 
-          savings: "65% RETENTION",
-          stats: {
-            engagement: "9x",
-            views: "40M+",
-            subscribers: "220K"
-          },
           achievements: [
             "Crafted engaging long-form podcast content (1H+), maintaining high audience retention by structuring complex interview topics into a compelling narrative.",
             "Gained over 2.3K+ highly targeted views from GPSC aspirants, effectively driving organic engagement within the competitive education niche.",
@@ -2342,22 +2216,16 @@
       ],
       testimonials: [
         {
-          videoId: "s7H9hyopPGE",
-          text: "Abhishek's editing transformed our content strategy. His attention to detail and creative vision helped us achieve record engagement.",
-          author: "Ryan Francis",
-          role: "The Money CEO"
+          videoId: "k9I_wmWG5zM",
+          text: "At Sankalp Education, quality and clarity matters a lot to us, and Abhishek has been delivering exactly it in his video editing. From long podcast video to short educational clips, Abhishek ensures that [the] content is crisp and very impactful. His work ethic, timely delivery, and dedication makes him a valuable partner.",
+          author: "Sankalp Education",
+          role: "Director"
         },
         {
-          videoId: "vfjI7u4D2fc",
-          text: "Working with Abhishek was a game-changer for our YouTube channel. His edits increased our viewer retention by 40%.",
-          author: "Sarah Johnson",
-          role: "Content Creator"
-        },
-        {
-          videoId: "0C8wasc-J-Q",
-          text: "The quality of Abhishek's work is outstanding. He understands the brand voice and delivers beyond expectations every time.",
-          author: "Michael Chen",
-          role: "Marketing Director"
+          videoId: "",
+          text: "We entrust Abhishek with all our diverse video needs at Brrainothon. Whether it's editing or detailing long videos, creating engaging social media shorts, or polishing our crucial VSLs, his work is always top-notch. He delivers quickly and maintains extraordinarily high standard quality across all formats. Abhishek is the professional partner you need for video editing.",
+          author: "Brrainothon",
+          role: "Director"
         }
       ]
     };
@@ -2388,16 +2256,11 @@
 
     // Function to set up social media links
     function initializeSocialLinks() {
-      // Contact section social links
-      document.getElementById('social-instagram').href = socialLinks.instagram;
-      document.getElementById('social-youtube').href = socialLinks.youtube;
+      // Contact section social links - ONLY LINKEDIN
       document.getElementById('social-linkedin').href = socialLinks.linkedin;
       
-      // Footer social links
+      // Footer social links - ONLY LINKEDIN
       document.getElementById('footer-linkedin').href = socialLinks.linkedin;
-      document.getElementById('footer-youtube').href = socialLinks.youtube;
-      document.getElementById('footer-twitter').href = socialLinks.twitter;
-      document.getElementById('footer-instagram').href = socialLinks.instagram;
     }
 
     function initializeShowreel() {
@@ -2414,11 +2277,7 @@
       const container = document.getElementById('projectsThumbnails');
       const projectVideo = document.getElementById('projectVideo');
       const projectTitle = document.getElementById('projectTitle');
-      const projectChannel = document.getElementById('projectChannel');
-      const projectSavings = document.getElementById('projectSavings');
       const projectAchievements = document.getElementById('projectAchievements');
-      const statValues = document.querySelectorAll('.stat-value');
-      const statLabels = document.querySelectorAll('.stat-label');
       
       // Clear containers
       container.innerHTML = '';
@@ -2437,10 +2296,9 @@
           </div>
           <div class="thumbnail-info">
             <div class="thumbnail-title">${data.title}</div>
-            
           </div>
         `;
-        //<div class="thumbnail-channel">${data.channel}</div>
+        
         thumbnail.onclick = () => {
           // Update active state
           document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
@@ -2449,13 +2307,6 @@
           // Update video and details
           projectVideo.src = `https://www.youtube.com/embed/${videoId}`;
           projectTitle.textContent = data.title;
-          //projectChannel.textContent = data.channel;
-          projectSavings.textContent = data.savings;
-          
-          // Update stats
-          statValues[0].textContent = data.stats.engagement;
-          statValues[1].textContent = data.stats.views;
-          statValues[2].textContent = data.stats.subscribers;
           
           // Update achievements
           projectAchievements.innerHTML = '';
@@ -2474,13 +2325,6 @@
         const firstProject = videoData.projects[0];
         projectVideo.src = `https://www.youtube.com/embed/${videoConfig.projects[0]}`;
         projectTitle.textContent = firstProject.title;
-        //projectChannel.textContent = firstProject.channel;
-        projectSavings.textContent = firstProject.savings;
-        
-        // Set initial stats
-        statValues[0].textContent = firstProject.stats.engagement;
-        statValues[1].textContent = firstProject.stats.views;
-        statValues[2].textContent = firstProject.stats.subscribers;
         
         // Set initial achievements
         projectAchievements.innerHTML = '';
