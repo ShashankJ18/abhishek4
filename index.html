@@ -838,7 +838,7 @@
   display: block;
   border-radius: 50%; /* Make the image itself round */
   padding: 10px; /* Add some padding inside the circle */
-  background: var(--panel-light); /* Background color for the logo */
+  background: white; /* Background color for the logo */
 }
 
     .client-name {
@@ -854,7 +854,7 @@
       margin-bottom: 8px;
     }
 
-    /* Updated Testimonials Section */
+    /* Updated Testimonials Section - FIXED VERSION */
 .testimonials {
   padding: 100px 20px;
   max-width: var(--max-width);
@@ -873,29 +873,22 @@
   background: var(--panel);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.1);
-  padding: 30px 20px; /* Changed from 30px to 30px 20px */
+  padding: 30px;
 }
 
 .testimonials-carousel {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Add this to create proper spacing */
   width: 100%;
 }
 
 .testimonial-slide {
-  min-width: calc(100% - 40px); /* Reduced from 100% to create space */
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   gap: 30px;
-  /* Add margin to create space between slides */
-  margin: 0 20px; /* This creates space between slides */
-  /* Optional: Add some styling to make the separation clearer */
-  padding: 20px;
-  background: rgba(26, 35, 50, 0.5); /* Slightly different background */
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 10px;
 }
 
 .testimonial-video {
@@ -904,16 +897,14 @@
   border-radius: 12px;
   overflow: hidden;
   background: #000;
-  aspect-ratio: 16 / 9; /* YouTube standard aspect ratio */
+  aspect-ratio: 16 / 9;
 }
 
 .testimonial-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
+  display: block;
 }
 
 .testimonial-content {
@@ -1022,17 +1013,12 @@
 
 /* Responsive adjustments for testimonials */
 @media (max-width: 1100px) {
-  .testimonials-carousel {
-    height: auto;
+  .testimonial-arrow.prev {
+    left: -70px;
   }
   
-  .testimonial-slide {
-    padding: 0;
-  }
-  
-  .testimonial-video {
-    aspect-ratio: 16 / 9;
-    height: auto;
+  .testimonial-arrow.next {
+    right: -70px;
   }
 }
 
@@ -1043,6 +1029,7 @@
   
   .testimonial-slide {
     gap: 20px;
+    padding: 0 5px;
   }
   
   .testimonial-video {
@@ -1055,17 +1042,27 @@
   }
   
   .testimonial-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
   }
   
   .testimonial-arrow.prev {
-    left: -80px;
+    left: 10px;
   }
   
   .testimonial-arrow.next {
-    right: -80px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonial-arrow.prev {
+    left: -50px;
+  }
+  
+  .testimonial-arrow.next {
+    right: -50px;
   }
 }
 
@@ -1083,17 +1080,17 @@
   }
   
   .testimonial-arrow {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
   }
   
   .testimonial-arrow.prev {
-    left: -40px;
+    left: 5px;
   }
   
   .testimonial-arrow.next {
-    right: -40px;
+    right: 5px;
   }
 }
 
@@ -1515,12 +1512,12 @@
       }
       
       /* Testimonials Responsive */
-      .testimonials-carousel {
-        height: 450px;
+      .testimonial-arrow.prev {
+        left: -70px;
       }
       
-      .testimonial-slide {
-        padding: 30px;
+      .testimonial-arrow.next {
+        right: -70px;
       }
     }
 
@@ -1685,20 +1682,22 @@
       }
       
       /* Testimonials Mobile */
-      .testimonials-carousel {
-        height: 500px;
-      }
-      
-      .testimonial-slide {
+      .testimonials-container {
         padding: 20px;
       }
       
+      .testimonial-slide {
+        gap: 20px;
+        padding: 0 5px;
+      }
+      
       .testimonial-video {
-        height: 250px;
+        aspect-ratio: 16 / 9;
       }
       
       .testimonial-text {
         font-size: 16px;
+        padding: 0 10px;
       }
       
       .testimonial-arrow {
@@ -1708,11 +1707,11 @@
       }
       
       .testimonial-arrow.prev {
-        left: 10px;
+        left: -60px;
       }
       
       .testimonial-arrow.next {
-        right: 10px;
+        right: -60px;
       }
       
       /* Contact Section */
@@ -1836,16 +1835,30 @@
       }
       
       /* Testimonials Small Mobile */
-      .testimonials-carousel {
-        height: 550px;
+      .testimonials-container {
+        padding: 15px;
       }
       
-      .testimonial-video {
-        height: 200px;
+      .testimonial-slide {
+        gap: 15px;
       }
       
       .testimonial-text {
         font-size: 15px;
+      }
+      
+      .testimonial-arrow {
+        width: 40px;
+    height: 40px;
+    font-size: 16px;
+      }
+      
+      .testimonial-arrow.prev {
+        left: -40px;
+      }
+      
+      .testimonial-arrow.next {
+        right: -40px;
       }
       
       .clients-grid {
@@ -2788,4 +2801,3 @@
   </script>
 </body>
 </html>
-
