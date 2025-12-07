@@ -292,12 +292,31 @@
     }
 
     #typing {
-      color: #c3c8d4;
-      font-size: 28px;
-      margin-top: 20px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
+  color: #c3c8d4;
+  font-size: 28px;
+  margin-top: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  height: 40px; /* Fixed height to prevent layout shift */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide any overflow during animation */
+}
+
+@media (max-width: 768px) {
+  #typing {
+    font-size: 20px;
+    height: 32px; /* Adjusted for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  #typing {
+    font-size: 18px;
+    height: 28px; /* Adjusted for small mobile */
+  }
+}
 
     /* Section Title */
     .section-title {
@@ -1551,8 +1570,9 @@
       }
       
       #typing {
-        font-size: 20px;
-      }
+    font-size: 20px;
+    height: 32px; /* Adjusted for mobile */
+  }
       
       /* Section Titles */
       .section-title {
@@ -1792,6 +1812,7 @@
       
       #typing {
         font-size: 18px;
+        height: 28px;
       }
       
       .section-title {
